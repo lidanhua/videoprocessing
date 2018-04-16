@@ -7,8 +7,8 @@ import sys
 # Function for cutting a video clip.
 
 def cutvideo(a, b, c):
-     video = mpy.VideoFileClip("第7集.mp4").subclip(a[0], a[1])
-     return video.write_videofile("【第7集片段%s-%s】%s.mp4" % (b, c, a[2]))
+     video = mpy.VideoFileClip("FileName.mp4").subclip(a[0], a[1])
+     return video.write_videofile("[FileName_clips%s-%s]%s.mp4" % (b, c, a[2]))
 
 
 # Function for translating the start and end point into number of seconds.
