@@ -2,29 +2,24 @@
 import multiprocessing
 import sys
 
-
-
 # Function for cutting a video clip.
-
 def cutvideo(a, b, c):
      video = mpy.VideoFileClip("FileName.mp4").subclip(a[0], a[1])
      return video.write_videofile("[FileName_clips%s-%s]%s.mp4" % (b, c, a[2]))
 
 
-# Function for translating the start and end point into number of seconds.
-
+# Function for translating the starting and end point into number of seconds.
 def translate(n):
      l = n.split(":")
      return (int(l[0]))*60 + int(l[1])
 
 
-# Function for processing editing texts.
+# Function for processing editted texts, including starting point, end point and titles for video clips.
 def processtxt(text):
      clip = text.split(", ", 2)
      clip[0], clip[1] = translate(clip[0]), translate(clip[1])
      clip[2] = clip[2].strip('\n')
      return clip
-
 
 # multiprocessing for faster video processing
 if __name__=="__main__":
